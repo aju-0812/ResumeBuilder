@@ -22,3 +22,5 @@ suggestions, the Automatic Resume Builder empowers users to focus more on their 
 rather than formatting concerns. It stands as a practical and impactful tool, especially for those 
 preparing for academic internships, job placements, or professional transitions, and contributes to 
 bridging the gap between technical ability and career presentation.
+view on  http://127.0.0.1:5000
+![Screenshot 2025-05-30 221420](https://github.com/user-attachments/assets/55aafe70-90c9-45d2-8aa0-e78b7ade986b)
