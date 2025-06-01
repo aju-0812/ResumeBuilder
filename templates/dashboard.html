@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Dashboard - Resume Builder</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Header with welcome and logout */
+  .header {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    box-sizing: border-box;
+    color: white;
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+
+  .header a {
+    text-decoration: none;
+    color: #ffdd57;
+    font-weight: 700;
+    padding: 8px 16px;
+    background: #4a2c91;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+
+  .header a:hover {
+    background-color: #3a2370;
+  }
+
+  form {
+    background: white;
+    max-width: 900px;
+    width: 90%;
+    padding: 40px 50px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    box-sizing: border-box;
+
+    display: flex;
+    gap: 40px; /* space between columns */
+  }
+
+  .column {
+    flex: 1; /* equal width columns */
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    margin-top: 15px;
+    font-weight: 600;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="url"],
+  textarea,
+  input[type="file"] {
+    width: 100%;
+    padding: 8px 12px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: inherit;
+    box-sizing: border-box;
+    resize: vertical;
+  }
+
+  textarea {
+    min-height: 60px;
+  }
+
+  button {
+    margin-top: 25px;
+    background-color: #007bff;
+    border: none;
+    padding: 12px 25px;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-start; /* button aligns to left of the form */
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  /* Responsive tweak */
+  @media (max-width: 700px) {
+    form {
+      flex-direction: column;
+      padding: 20px 30px;
+    }
+    .column {
+      width: 100%;
+    }
+    .header {
+      flex-direction: column;
+      gap: 10px;
+      padding: 15px 20px;
+      font-size: 1rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <div>Welcome, {{ username }}!</div>
+    <a href="{{ url_for('logout') }}">Logout</a>
+  </div>
+
+  <form method="POST" action="{{ url_for('generate_resume') }}" enctype="multipart/form-data">
+
+    <div class="column">
+      <label>Name*:</label>
+      <input type="text" name="name" required />
+
+      <label>Email*:</label>
+      <input type="email" name="email" required />
+
+      <label>Phone*:</label>
+      <input type="text" name="phone" required />
+
+      <label>LinkedIn:</label>
+      <input type="url" name="linkedin" />
+
+      <label>Summary:</label>
+      <textarea name="summary"></textarea>
+
+      <label>Skills (comma-separated):</label>
+      <input type="text" name="skills" />
+
+      <label>Upload Profile Picture:</label>
+      <input type="file" name="image" accept="image/*" />
+    </div>
+
+    <div class="column">
+      <label>HSC Score:</label>
+      <input type="text" name="hscScore" />
+
+      <label>HSC Year:</label>
+      <input type="text" name="hscYear" />
+
+      <label>College Year:</label>
+      <input type="text" name="collegeYear" />
+
+      <label>CGPA:</label>
+      <input type="text" name="cgpa" />
+
+      <label>Internships / Experience:</label>
+      <textarea name="internships"></textarea>
+
+      <label>Projects:</label>
+      <textarea name="projects"></textarea>
+
+      <label>Certifications:</label>
+      <textarea name="certifications"></textarea>
+
+      <label>Achievements:</label>
+      <textarea name="achievements"></textarea>
+
+      <button type="submit">Generate Resume PDF</button>
+    </div>
+
+  </form>
+
+</body>
+</html>
