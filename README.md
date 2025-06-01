@@ -23,4 +23,4 @@ rather than formatting concerns. It stands as a practical and impactful tool, es
 preparing for academic internships, job placements, or professional transitions, and contributes to 
 bridging the gap between technical ability and career presentation.
 view on  http://127.0.0.1:5000
-![Screenshot 2025-05-30 221420](https://github.com/user-attachments/assets/55aafe70-90c9-45d2-8aa0-e78b7ade986b)
+![Screenshot 2025-05-31 235902](https://github.com/user-attachments/assets/3a3e7253-b2e4-41e7-9766-95e298bed104)
